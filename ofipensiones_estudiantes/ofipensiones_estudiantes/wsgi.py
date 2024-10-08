@@ -1,5 +1,5 @@
 """
-WSGI config for ofipenciones_estudiantes project.
+WSGI config for ofipensiones_estudiantes project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ofipenciones_estudiantes.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ofipensiones_estudiantes.settings')
 
 application = get_wsgi_application()
