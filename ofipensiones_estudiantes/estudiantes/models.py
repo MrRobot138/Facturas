@@ -18,7 +18,7 @@ class ResumenDeCuenta(models.Model):
     fechaUltimaPago = models.DateField()
     
 class ReciboDePago(models.Model):
-    idRecibo = models.CharField(max_length=50)
+    idRecibo = models.AutoField(primary_key=True)
     fechaPago = models.DateField()
     valorCancelado = models.DecimalField(max_digits=10, decimal_places=2)
     tipoDePago = models.CharField(max_length=50)
