@@ -1,0 +1,31 @@
+_format_version: "2.1"
+
+services:
+  - name: estudiantes_service
+    url: http://<ip_interna_estudiantes_app>:8080 # Reemplazar con la IP interna de la instancia
+    routes:
+      - name: estudiantes_route
+        paths:
+          - /consulta-estudiantes
+        strip_path: true
+
+upstreams:
+  - name: estudiantes_upstream
+    targets:
+      - target: <ip_interna_estudiantes_app>:8080 # IP interna de la instancia de estudiantes
+        weight: 100
+      - target: <ip_interna_estudiantes_app>:8080
+        weight: 100
+      - target: <ip_interna_estudiantes_app>:8080
+        weight: 100
+    healthchecks:
+      active:
+        http_path: /health-check
+        timeout: 10
+        healthy:
+          interval: 10
+          successes: 3
+        unhealthy:
+          interval: 7
+          http_failures: 3
+      threshold: 50
