@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#touti6u+&=qkp%z!u0wgzd6j1n8r3qzqrg74t(d0peo5!3+kq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'estudiantes'
+    'estudiantes',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -84,6 +85,12 @@ DATABASES = {
         'PORT': '',
     }
 }
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
 
 
 # Password validation
@@ -128,3 +135,27 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+LOGIN_URL = "/login/auth0"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "https://dev-zr3inytess7hmv5v.us.auth0.com/v2/logout?returnTo=http%3A%2F%2F35.224.4.174:8080"
+
+SOCIAL_AUTH_TRAILING_SLASH = False  # Remove end slash from routes
+SOCIAL_AUTH_AUTH0_DOMAIN = 'dev-zr3inytess7hmv5v.us.auth0.com'
+SOCIAL_AUTH_AUTH0_KEY = 'WMuLdU1WmEP64fLnxLRD4Cvgxr00m60W'
+SOCIAL_AUTH_AUTH0_SECRET = '22GlK8lVqiskBDBjrn4vW3OyfZ5lxVXYExEKyOGZ2ZZwDaoF6Dlu63QFsVgg0-us'
+
+SOCIAL_AUTH_AUTH0_SCOPE = [
+    'openid',
+    'profile',
+    'email',
+    'role',
+]
+
+AUTHENTICATION_BACKENDS = {
+    'monitoring.auth0backend.Auth0',
+    'django.contrib.auth.backends.ModelBackend',
+}
+
