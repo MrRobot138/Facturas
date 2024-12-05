@@ -12,8 +12,8 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name='resumendecuenta',
-            name='estudiante',
+            model_name='estudiante',
+            name='idFactura',
             field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='estudiantes.estudiante'),
         ),
     ]

@@ -31,12 +31,12 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='ReciboDePago',
+            name='Factura',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('idRecibo', models.CharField(max_length=50)),
                 ('fechaPago', models.DateField()),
-                ('valorCancelado', models.DecimalField(decimal_places=2, max_digits=10)),
+                ('valorACancelar', models.DecimalField(decimal_places=2, max_digits=10)),
                 ('tipoDePago', models.CharField(max_length=50)),
                 ('ccDelResponsable', models.IntegerField()),
                 ('entidadBancaria', models.CharField(max_length=100)),

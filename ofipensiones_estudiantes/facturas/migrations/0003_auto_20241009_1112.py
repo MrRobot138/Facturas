@@ -11,12 +11,12 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RemoveField(
-            model_name='recibodepago',
+            model_name='factura',
             name='id',
         ),
         migrations.AlterField(
-            model_name='recibodepago',
-            name='idRecibo',
+            model_name='factura',
+            name='idFactura',
             field=models.AutoField(primary_key=True, serialize=False),
         ),
     ]

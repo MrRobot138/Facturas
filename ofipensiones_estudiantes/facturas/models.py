@@ -17,10 +17,10 @@ class ResumenDeCuenta(models.Model):
     estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE, null=True)
     fechaUltimaPago = models.DateField()
     
-class ReciboDePago(models.Model):
-    idRecibo = models.AutoField(primary_key=True)
+class Factura(models.Model):
+    idFactura = models.AutoField(primary_key=True)
     fechaPago = models.DateField()
-    valorCancelado = models.DecimalField(max_digits=10, decimal_places=2)
+    valorACancelar = models.DecimalField(max_digits=10, decimal_places=2)
     tipoDePago = models.CharField(max_length=50)
     ccDelResponsable = models.IntegerField()
     entidadBancaria = models.CharField(max_length=100)
